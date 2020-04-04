@@ -1,6 +1,8 @@
-package chapter1.二分查找;
+package chapter1_Fundamentals.Basic;
 import edu.princeton.cs.algs4.*;
+
 import java.util.Arrays;
+
 public class BinarySearch {
     public static int indexOf(int[] a, int key) {
         int lo = 0;
@@ -17,6 +19,9 @@ public class BinarySearch {
     public static void main(String[] args) {
         In in = new In(args[0]);
         int[] whitelist = in.readAllInts();
+
+        // sort the array
+        Arrays.sort(whitelist);
         while (!StdIn.isEmpty()) {
             int key = StdIn.readInt();
             if (BinarySearch.indexOf(whitelist, key) == -1)
