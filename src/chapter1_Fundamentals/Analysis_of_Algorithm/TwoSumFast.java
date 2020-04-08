@@ -25,6 +25,7 @@ public class TwoSumFast {
         In in = new In(args[0]);
         Stopwatch Timer = new Stopwatch();
         int Count = count(in.readAllInts());
+        StdOut.printf("Consume time is %.2f \n", Timer.elapsedTime());
         StdOut.println(Count);
     }
 }
