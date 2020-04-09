@@ -5,7 +5,7 @@ import edu.princeton.cs.algs4.StdOut;
 import edu.princeton.cs.algs4.Stopwatch;
 
 public class WeightedQuickUnionUF {
-    // 主要将小树链接到大树
+    // 主要将小树链接到大树，减少树的深度，减少find根节点的复杂度
     private int[] id; // 父链接数组（触点索引）
     private int[] sz; // 各个根节点对应的分量的大小
     private int count; // 连通分量的 数量
@@ -41,6 +41,7 @@ public class WeightedQuickUnionUF {
         } else {
             id[j] = i; sz[i] += sz[j];
         }
+        count--;
     }
 
     public static void main(String[] args) {
