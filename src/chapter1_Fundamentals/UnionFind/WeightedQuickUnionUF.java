@@ -9,6 +9,7 @@ public class WeightedQuickUnionUF {
     private int[] id; // 父链接数组（触点索引）
     private int[] sz; // 各个根节点对应的分量的大小
     private int count; // 连通分量的 数量
+    private AmortizedCostPlots visual = new AmortizedCostPlots(900, 300); // 均摊成本图像
 
     public WeightedQuickUnionUF(int N) {
         count = N;
@@ -27,20 +28,33 @@ public class WeightedQuickUnionUF {
     }
 
     public int find(int p) {
-        while (p != id[p]) p = id[p];
+        visual.increaseCost();
+        while (p != id[p]) {
+            visual.increaseCost();
+            p = id[p];
+        }
         return p;
     }
 
     public void union(int p, int q) {
         int i = find(p);
         int j = find(q);
-        if (i == j) return;
+        if (i == j) {
+            visual.drawPoint();
+            return;
+        }
 
         if (sz[i] < sz[j]) {
             id[i] = j; sz[j] += sz[i];
         } else {
             id[j] = i; sz[i] += sz[j];
         }
+        visual.increaseCost();
+        visual.increaseCost();
+        visual.increaseCost();
+        visual.increaseCost();
+        visual.increaseCost();
+        visual.drawPoint();
         count--;
     }
 

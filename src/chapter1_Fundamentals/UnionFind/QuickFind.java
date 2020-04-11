@@ -6,7 +6,8 @@ import edu.princeton.cs.algs4.Stopwatch;
 
 public class QuickFind {
     private int[] id; // 分量id，分量指将向量分成几个方向的和，这个方向上的向量就是分量
-    private  int count; // 联通数量
+    private int count; // 联通数量
+    private AmortizedCostPlots visual = new AmortizedCostPlots(900, 1300); // 均摊成本图像
 
     public QuickFind(int N) {
         count = N;
@@ -18,24 +19,32 @@ public class QuickFind {
     }
 
     public int find(int a) {
+        visual.increaseCost();
         return id[a];
     }
 
     public void union(int a, int b) {
         int aID = find(a);
         int bID = find(b);
-        if (aID == bID) return;
+        if (aID == bID) {
+            visual.drawPoint();
+            return;
+        }
         for (int i = 0; i < id.length; i++) {
+            visual.increaseCost();
             if (id[i] == aID) {
+                visual.increaseCost();
                 id[i] = bID;
             }
         }
+        visual.drawPoint();
         count--;
     }
 
     public int count() {
         return count;
     }
+
 
     public boolean connected(int a, int b) {
         return find(a) == find(b);
