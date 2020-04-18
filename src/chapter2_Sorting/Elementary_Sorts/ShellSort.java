@@ -6,7 +6,7 @@ public class ShellSort extends SortCommon{
         int h = 1;
         while (h < N/3) h = 3 * h + 1; // 1， 4， 13, 40, 121
         while (h >= 1) {
-            for (int i = h; i < N; i++) { // 进行h 间的两个较远量交换，实现较远距离的插入排序（数据提前有序）。
+            for (int i = h; i < N; i++) { // 进行h 间的两个较远量交换，实现较远距离的插入排序（数据提前有序）即是h个子数组独立的插入排序。
                 for (int j = i; j >= h && less(a[j], a[j - h]); j -= h) {
                     exch(a, i, j);
                 }
