@@ -16,6 +16,7 @@ public class SelectionSort extends SortCommon{
                     min = j;
                 }
             }
+            // 每次归位最小的元素
             exch(a, i, min);
         }
     }

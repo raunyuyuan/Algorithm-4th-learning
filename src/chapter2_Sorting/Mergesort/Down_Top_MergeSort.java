@@ -14,3 +14,9 @@ public class Down_Top_MergeSort extends InPlaceMerge{
     }
 
 }
+
+// 这里用min的理由是数组长度不是2的幂 例如 42130 这个数组
+// lo 0 hi 1 lo 2 hi 3 lo 4 return
+// lo 0 hi 3 lo 4 return
+// lo 0 hi 4 return // 这里取了N-1
+// return
