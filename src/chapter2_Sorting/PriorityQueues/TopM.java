@@ -1,4 +1,4 @@
-package chapter2_Sorting.priorityQueues;
+package chapter2_Sorting.PriorityQueues;
 
 import edu.princeton.cs.algs4.*;
 
