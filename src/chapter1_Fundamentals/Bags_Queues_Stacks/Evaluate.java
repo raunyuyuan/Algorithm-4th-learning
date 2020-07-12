@@ -4,8 +4,8 @@ import edu.princeton.cs.algs4.Stack;
 import edu.princeton.cs.algs4.StdIn;
 import edu.princeton.cs.algs4.StdOut;
 
-// 双栈算数表达式运算求值算法
-public class Dijkstra {
+// Dijkstra的双栈算数表达式运算求值算法
+public class Evaluate {
 
     public static void main(String[] args) {
         Stack<String> ops = new Stack<String>();
