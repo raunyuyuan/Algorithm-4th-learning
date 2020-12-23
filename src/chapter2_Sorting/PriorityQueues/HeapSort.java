@@ -36,6 +36,7 @@ public class HeapSort{
             sink(a, k, N);
         }
         while (N > 1) {
+            // 把当前N表示最小元素挪上去，不停在原堆当中归位该元素
             exch(a, 1, N--);
             sink(a, 1, N);
         }
