@@ -6,6 +6,7 @@ import edu.princeton.cs.algs4.StdOut;
 
 public class BagClient {
     public static void main(String args[]) {
+        // 严格的来说背包是去协助做收集遍历和数量确定的。
         Bag<Double> numbers = new Bag<Double>();
         while (!StdIn.isEmpty()) {
             numbers.add(StdIn.readDouble());
